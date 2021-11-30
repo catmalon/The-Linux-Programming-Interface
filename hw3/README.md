@@ -8,6 +8,7 @@
 ## Part 2: 
 * Write a program that draws a tree showing the hierarchical parent-child relationships of all processes on the system, going all the way back to init.
 * [Usage] ./pstree USER_NAME
+
 ![image](https://user-images.githubusercontent.com/75157669/143986678-195558f9-27b9-41a8-8cee-33f3ded04f28.png)
 
 ## Part 3:
