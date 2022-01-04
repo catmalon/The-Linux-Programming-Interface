@@ -9,7 +9,6 @@ main(int argc, char *argv[])
 	mqd_t sqd, cqd;
 	int sendPrio;
     int  numMsgs;
-	ssize_t len;
 	unsigned int prio;
     ssize_t msgLen, totBytes;
 	char clientMQ[CLIENT_MQ_NAME_LEN];
@@ -67,15 +66,15 @@ main(int argc, char *argv[])
 
 	/* File was opened successfully by server; process messages
 		(including the one already received) containing file data */
-	totBytes = 0;                  /* Count first message */
-	len = 0;
+	totBytes = msgLen - sizeof(resp.type);                  /* Count first message */
 	for (numMsgs = 1; resp.type == RESP_MT_DATA; numMsgs++) {
 		msgLen = mq_receive(cqd, (char*) &resp, RESP_MSG_SIZE, &prio);
-		if (msgLen == -1) {
+		if (resp.type == RESP_MT_DATA) {
+			if (msgLen == -1) {
 			perror("mq_receive");
 			exit(errno);
+			}
 		}
-		len += strlen(resp.data);
 		totBytes += msgLen - sizeof(resp.type);
 	}
 
