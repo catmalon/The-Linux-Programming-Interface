@@ -23,4 +23,4 @@
 ### Client
 ./client [seq-len]
 
-![image](https://user-images.githubusercontent.com/75157669/149885795-f52fd89c-d672-41b1-97a9-c4f924ca3a04.png)
+![image](https://user-images.githubusercontent.com/75157669/149888363-7df4c4fa-03bc-4bd5-b6fb-d0f38af1f804.png)
